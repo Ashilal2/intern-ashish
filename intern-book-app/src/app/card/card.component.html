@@ -1,11 +1,10 @@
-<mat-card appearance="outlined">
+<mat-card class="book-card">
+    <mat-card-title>{{ book?.title }}</mat-card-title>
     <mat-card-content>
-        <h4>読んだ本</h4>
+        <div class="content">
+            {{ book?.summary }}
+        </div>
+        <span>評価: {{ book?.rating }}点</span>
     </mat-card-content>
-    <div>
-
-        <h2>消去</h2>
-        <button type="button" class="clear" (click)="bookInfoService.removeBook(bookInformation)">消去</button>
-    </div>
-
+    <app-card *ngFor="let book of bookList" [book]="book"></app-card>
 </mat-card>
