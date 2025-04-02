@@ -1,19 +1,26 @@
-import { Component } from '@angular/core';
-import { ChangeDetectionStrategy } from '@angular/core';
+import { Component, ChangeDetectionStrategy } from '@angular/core';
 import { MatSelectModule } from '@angular/material/select';
 import { MatInputModule } from '@angular/material/input';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { Book } from '../types/book';
 import { FormsModule } from '@angular/forms';
-import { NgFor } from '@angular/common';
+import { NgFor, CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
-import { CommonModule } from '@angular/common';
-
+import { CardComponent } from '../card/card.component';
 
 @Component({
   standalone: true,
   selector: 'app-book-form',
-  imports: [MatFormFieldModule, MatInputModule, MatSelectModule, FormsModule, MatCardModule, CommonModule],
+  imports: [
+    MatFormFieldModule,
+    MatInputModule,
+    MatSelectModule,
+    FormsModule,
+    MatCardModule,
+    CommonModule,
+    NgFor,
+    CardComponent,
+  ],
   templateUrl: 'book-form.component.html',
   styleUrl: 'book-form.component.css',
   changeDetection: ChangeDetectionStrategy.OnPush // memo：変更検出が必要なタイミングにのみ実行されるため、パフォーマンスを最適化できる

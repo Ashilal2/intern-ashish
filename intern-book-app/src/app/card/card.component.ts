@@ -12,6 +12,4 @@ import { Book } from '../types/book';
 export class CardComponent {
   @Input() book?: Book;
 
-
-
 }
