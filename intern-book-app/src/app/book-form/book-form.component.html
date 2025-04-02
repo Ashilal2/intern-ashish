@@ -1,23 +1,35 @@
 <div>
     <mat-form-field>
         <mat-label>書籍名</mat-label>
-        <input matInput type="title" [(ngModel)]="title" name="書籍名" required>
+        <input matInput type="text" [(ngModel)]="title" name="title" required>
     </mat-form-field>
 </div>
 <div>
     <mat-form-field>
         <mat-label>あらすじ</mat-label>
-        <textarea matInput type="summary" [(ngModel)]="summary" name="あらすじ"></textarea>
+        <textarea matInput [(ngModel)]="summary" name="summary"></textarea>
     </mat-form-field>
 
 </div>
 <div>
     <mat-form-field>
         <mat-label>評価点</mat-label>
-        <input matInput type="number" [(ngModel)]="rating" name="評価点">
+        <input matInput type="number" [(ngModel)]="rating" name="rating">
     </mat-form-field>
 </div>
 
 <div>
     <button type="button" class="add" (click)="addBook()">追加</button>
 </div>
+
+<!-- <mat-card *ngFor="let book of bookList">
+    <mat-card-title>{{ book.title }}</mat-card-title>
+    <mat-card-content>
+        <p>{{ book.summary }}</p>
+        <p>評価: {{ book.rating }}点</p>
+    </mat-card-content>
+</mat-card> -->
+
+
+<!-- bookListにある本のデータを1つずつ取り出してapp-cardコンポーネントに渡して、繰り返し表示する -->
+<app-card *ngFor="let book of bookList" [book]="book"></app-card>

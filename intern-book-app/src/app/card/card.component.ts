@@ -1,7 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { MatCardModule } from '@angular/material/card';
-import { BookInfoService } from '../book-info.service';
-import { Book } from '../book';
+import { Book } from '../types/book';
 
 @Component({
   standalone: true,
@@ -11,7 +10,6 @@ import { Book } from '../book';
   styleUrl: './card.component.css'
 })
 export class CardComponent {
-  bookInformation: Book[] = [];
-  constructor(public bookInfoService: BookInfoService) { }
+  @Input() book?: Book;
 
 }
