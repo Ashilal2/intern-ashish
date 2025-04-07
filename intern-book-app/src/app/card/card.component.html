@@ -6,5 +6,7 @@
         </div>
         <span>評価: {{ book?.rating }}点</span>
     </mat-card-content>
-    <app-card *ngFor="let book of bookList" [book]="book"></app-card>
+    <div>
+        <button type="button" class="delete" (click)="delete()">消去</button>
+    </div>
 </mat-card>

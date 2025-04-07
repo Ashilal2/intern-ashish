@@ -22,14 +22,14 @@
     <button type="button" class="add" (click)="addBook()">追加</button>
 </div>
 
-<!-- <mat-card *ngFor="let book of bookList">
-    <mat-card-title>{{ book.title }}</mat-card-title>
-    <mat-card-content>
-        <p>{{ book.summary }}</p>
-        <p>評価: {{ book.rating }}点</p>
-    </mat-card-content>
-</mat-card> -->
+<!-- bookListが空のとき -->
+<div *ngIf="bookList.length === 0" class="no-data">
+    データがありません
+</div>
 
-
-<!-- bookListにある本のデータを1つずつ取り出してapp-cardコンポーネントに渡して、繰り返し表示する -->
-<app-card *ngFor="let book of bookList" [book]="book"></app-card>
+<!-- bookListに要素があるとき -->
+<div *ngIf="bookList.length > 0">
+    <div *ngFor="let book of bookList">
+        <app-card [book]="book" (deleteRequest)="Delete($event)"></app-card>
+    </div>
+</div>

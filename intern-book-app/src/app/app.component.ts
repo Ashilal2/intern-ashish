@@ -8,7 +8,7 @@ import { BookFormComponent } from "./book-form/book-form.component";
 @Component({
   standalone: true,
   selector: 'app-root',
-  imports: [ToolbarComponent, CardComponent, BookFormComponent],
+  imports: [ToolbarComponent, BookFormComponent],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.scss']
 })
