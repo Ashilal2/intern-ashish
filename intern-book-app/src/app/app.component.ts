@@ -10,7 +10,7 @@ import { BookFormComponent } from "./book-form/book-form.component";
   selector: 'app-root',
   imports: [ToolbarComponent, BookFormComponent],
   templateUrl: './app.component.html',
-  styleUrls: ['./app.component.scss']
+  styleUrls: ['./app.component.css']
 })
 export class AppComponent {
   title = 'book-app';
