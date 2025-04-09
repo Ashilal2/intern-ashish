@@ -7,7 +7,7 @@ import { FormsModule } from '@angular/forms';
 import { NgFor, CommonModule } from '@angular/common';
 import { MatCardModule } from '@angular/material/card';
 import { CardComponent } from '../card/card.component';
-// import { DialogComponent } from '../dialog/dialog.component';
+import { DialogComponent } from '../dialog/dialog.component';
 import { MatDialog } from '@angular/material/dialog';
 
 
@@ -65,29 +65,28 @@ export class BookFormComponent {
     this.rating = 0;
   }
 
-  // Delete(book: Book) {
-  //   const dialogRef = this.dialog.open(DialogComponent, {
-  //     width: '300px',
-  //     data: { bookTitle: book.title } // ←ここで子にデータを渡す
-  //   });
-
-  //   dialogRef.afterClosed().subscribe((result) => {
-  //     // console.log('ダイアログの結果:', result);
-  //     if (result === true) {
-  //       const index = this.bookList.indexOf(book);
-  //       if (index > -1) {
-  //         this.bookList.splice(index, 1); // index番目から1つ要素を削除する
-  //       }
-  //     }
-  //   });
-  // }
-
-
   Delete(book: Book) {
-    const index = this.bookList.indexOf(book);
-    if (index > -1) {
-      this.bookList.splice(index, 1); // bookList から削除
-    }
+    const dialogRef = this.dialog.open(DialogComponent, {
+      width: '300px',
+      data: { bookTitle: book.title } // ←ここで子にデータを渡す
+    });
+
+    dialogRef.afterClosed().subscribe((result) => {
+      if (result === "true") {
+        const index = this.bookList.indexOf(book);
+        if (index > -1) {
+          this.bookList.splice(index, 1); // index番目から1つ要素を削除する
+        }
+      }
+    });
   }
+
+
+  // Delete(book: Book) {
+  //   const index = this.bookList.indexOf(book);
+  //   if (index > -1) {
+  //     this.bookList.splice(index, 1); // bookList から削除
+  //   }
+  // }
 
 }
