@@ -9,6 +9,7 @@ import { MatCardModule } from '@angular/material/card';
 import { CardComponent } from '../card/card.component';
 import { DialogComponent } from '../dialog/dialog.component';
 import { MatDialog } from '@angular/material/dialog';
+import { MessageService } from '../message.service';
 
 
 @Component({
@@ -32,7 +33,8 @@ import { MatDialog } from '@angular/material/dialog';
 
 
 export class BookFormComponent {
-  constructor(private dialog: MatDialog) { }
+  constructor(private dialog: MatDialog, private messageService: MessageService) { }
+
 
   public title: string = '';
   public summary: string = '';
@@ -58,6 +60,9 @@ export class BookFormComponent {
       rating: this.rating
     };
     this.bookList.push(newBook);
+
+    this.messageService.add(`「${newBook.title}」を追加しました`);
+
 
     //フォームのリセット
     this.title = '';
